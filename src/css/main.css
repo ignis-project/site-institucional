@@ -361,6 +361,11 @@ header, .second-header {
     background-color: darkgreen;
 }
 
+#total {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
 .container-content p {
     margin-top: 30px;
     width: 80%;
