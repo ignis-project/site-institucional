@@ -8,12 +8,12 @@ function calculateBudget() {
   const priceRepeater = 300
 
   const areaDelimitation = 500
-  const areas = Math.trunc(meters2 / areaDelimitation)
+  const areas = Math.round(meters2 / areaDelimitation) <= 500 ? 1 : Math.round(meters2 / areaDelimitation);
   const numSensors = 4
   const stonks = 0.3
 
   const priceEquipment = areas * (priceArduino + priceSensor) * numSensors + (areas * priceRepeater)
   const total = priceEquipment + priceEquipment * stonks
 
-  document.getElementById('total').value = total
+  document.getElementById('total').value = `Total: R$${total}`
 }
