@@ -343,6 +343,15 @@ header, .second-header {
     border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
+.container-content form label {
+    margin-right: auto;
+    margin-left: 5px;
+    margin-top: 1px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: 900;
+}
+
 .container form input[type="submit"] {
     width: 50%;
     border: 0px;
