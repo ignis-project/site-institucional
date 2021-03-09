@@ -1,10 +1,7 @@
 
-document.getElementById('btn-calculate')
-  .addEventListener('click', calculateBudget)
-
 function calculateBudget() {
   const meters2 = document.getElementById('meters2').value
-  
+
   // PRICES R$
   const priceArduino = 50
   const priceSensor = 20
