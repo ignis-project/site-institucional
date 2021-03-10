@@ -1,25 +1,35 @@
 
 function calculateBudget() {
   const meters2 = document.getElementById('meters2').value
+  const details = document.getElementById('total-details');
+  if (meters2 === null || meters2 === '' || meters2 === 0) {
+    document.getElementById('meters2').classList.add('error-input');
 
-  // PRICES R$
-  const priceArduino = 50
-  const priceSensor = 20.50
-  const priceRepeater = 300.79
-  const areaDelimitation = 500
+    setTimeout(() => {
+      document.getElementById('meters2').classList.remove('error-input');
+    }, 2000);
 
+  } else {
 
-  let preco = (Math.round((meters2 / areaDelimitation) * 4) * (priceSensor + priceArduino)) + ((Math.round((meters2 / areaDelimitation)) * priceRepeater));
+    // PRICES R$
+    const priceArduino = 50
+    const priceSensor = 20.50
+    const priceRepeater = 300.79
+    const areaDelimitation = 500
 
-  let total = preco + (preco * 0.3);
+    let numSections = meters2 / areaDelimitation;
+    let numSensors = Math.round(numSections * 4);
 
-  // const areas = meters2 / areaDelimitation <= 500 ? 1 : meters2 / areaDelimitation;
-  // const numSensors = 4
-  // const stonks = 0.3
+    let preco = (numSensors * (priceSensor + priceArduino)) + (numSections * priceRepeater);
+    let percent = preco * 0.3;
+    let total = preco + percent;
 
-  // const priceEquipment = areas * (priceArduino + priceSensor) * numSensors + (areas * priceRepeater)
-  // let total = priceEquipment + priceEquipment * stonks
+    let numRepeater = Math.round(numSections) > 1 ? Math.round(numSections) + ' repetidores de sinal' : Math.round(numSections) + ' repetidor de sinal';
 
+    document.getElementById('total').value = `Total: R$ ${total.toFixed(2).replace(".", ",")}`;
 
-  document.getElementById('total').value = `Total: R$ ${total.toFixed(2).replace(".", ",")}`
+    details.innerHTML = `Para uma região de ${meters2}M² será utilizado um total de ${numSensors} sensores e arduinos, somados a ${numRepeater}, resultando em R$ ${preco.toFixed(2).replace('.', ',')} mais R$ ${percent.toFixed(2).replace('.', ',')} de mão de obra.`;
+  }
+
 }
+

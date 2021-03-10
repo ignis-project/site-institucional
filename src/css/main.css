@@ -513,6 +513,18 @@ header, .second-header {
     background-color: var(--principal-color);
 }
 
+#meters2 {
+    transition: all 0.25s ease-out;
+}
+
+.error-input {
+    border: 2px solid red !important;
+}
+
+.error-input::placeholder {
+    color: red !important;
+}
+
 @keyframes jumpyarrow {
     0% {
         transform: translateY(0px);
