@@ -20,7 +20,6 @@ resetTimer = () => {
 }
 
 
-
 window.onload = () => {
     inactivityTime();
 
